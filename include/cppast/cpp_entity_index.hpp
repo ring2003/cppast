@@ -28,7 +28,7 @@ namespace cppast
         // FNV-1a 64 bit hash
         constexpr std::size_t id_hash(const char* str, std::size_t hash = fnv_basis)
         {
-            return *str ? id_hash(str + 1, (hash ^ *str) * fnv_prime) : hash;
+            return *str ? id_hash(str + 1, (hash ^ std::size_t(*str)) * fnv_prime) : hash;
         }
     } // namespace detail
 
